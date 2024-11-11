@@ -3,7 +3,7 @@ pipeline{
 
 
     stages{
-        stage(build){
+        stage(build1){
             steps{
                 sh "docker build -t mystaticapp ."
             }
