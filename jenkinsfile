@@ -9,8 +9,8 @@ pipeline{
     stages{
         stage("build and push to ecr"){
             steps{
-                script {// This step should not normally be used in your script. Consult the inline help for details.
-                withDockerRegistry(credentialsId: 'ecr:us-east-1:ecr-revision', url: 'https://557195342730.dkr.ecr.us-east-1.amazonaws.com/') {
+                // This step should not normally be used in your script. Consult the inline help for details.
+                withDockerRegistry(credentialsId: 'ecr:us-east-1:new-mystaticapp-key', url: 'https://557195342730.dkr.ecr.us-east-1.amazonaws.com/') {
                  sh "docker build -t mystaticapp:${params.REVISION} ."
                  sh "docker tag mystaticapp:${params.REVISION} 557195342730.dkr.ecr.us-east-1.amazonaws.com/mystaticapp:${params.REVISION}"
                  sh "docker tag mystaticapp:${params.REVISION} 557195342730.dkr.ecr.us-east-1.amazonaws.com/mystaticapp:latest"
@@ -21,5 +21,4 @@ pipeline{
         }
     }
    
-}
     
