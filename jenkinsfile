@@ -12,9 +12,9 @@ pipeline{
                 script {// This step should not normally be used in your script. Consult the inline help for details.
                 withDockerRegistry(credentialsId: 'ecr:us-east-1:ecr-revision', url: 'https://557195342730.dkr.ecr.us-east-1.amazonaws.com/') {
                  sh "docker build -t mystaticapp:${params.REVISION} ."
-                 sh "docker tag my-app-revision:${params.REVISION} 557195342730.dkr.ecr.us-east-1.amazonaws.com/my-app-revision:${params.REVISION}"
-                 sh "docker tag my-app-revision:${params.REVISION} 557195342730.dkr.ecr.us-east-1.amazonaws.com/my-app-revision:latest"
-                 sh "docker push 557195342730.dkr.ecr.us-east-1.amazonaws.com/my-app-revision:latest"
+                 sh "docker tag mystaticapp:${params.REVISION} 557195342730.dkr.ecr.us-east-1.amazonaws.com/mystaticapp:${params.REVISION}"
+                 sh "docker tag mystaticapp:${params.REVISION} 557195342730.dkr.ecr.us-east-1.amazonaws.com/mystaticapp:latest"
+                 sh "docker push 557195342730.dkr.ecr.us-east-1.amazonaws.com/mystaticapp:latest"
                     }
                 }
             }
